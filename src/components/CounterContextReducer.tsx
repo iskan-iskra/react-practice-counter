@@ -7,15 +7,15 @@ import {
   CardTitle,
   Stack,
 } from 'react-bootstrap';
-import { useReducer } from 'react';
-import { counterReducer } from '../reducers';
-import { TiCounterBasicProps } from '../types';
+import { useContext } from 'react';
+import { ContextCounterReducer } from '../context';
+import { TiCounterBasicProps, TiCounterContextReducer } from '../types';
 import { CounterReducerAction } from '../const';
 
-const initialValue = 0;
-
-const CounterReducer = (props: TiCounterBasicProps) => {
-  const [state, dispatch] = useReducer(counterReducer, { count: initialValue });
+const CounterContextReducer = ({ title }: TiCounterBasicProps) => {
+  const { state, dispatch } = useContext(
+    ContextCounterReducer,
+  ) as TiCounterContextReducer;
 
   const increment = () => {
     dispatch({
@@ -32,7 +32,7 @@ const CounterReducer = (props: TiCounterBasicProps) => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{props.title || 'Reducer counter - useReducer'}</CardTitle>
+        <CardTitle>{title || 'Props counter - props and callbacks'}</CardTitle>
       </CardHeader>
       <CardBody>
         <h3 className="text-center">
@@ -51,4 +51,4 @@ const CounterReducer = (props: TiCounterBasicProps) => {
   );
 };
 
-export default CounterReducer;
+export default CounterContextReducer;

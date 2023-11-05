@@ -8,10 +8,7 @@ import {
   Stack,
 } from 'react-bootstrap';
 import { useState } from 'react';
-
-type TiCounterBasicProps = {
-  title?: string;
-};
+import { TiCounterBasicProps } from '../types';
 
 const initialValue = 0;
 

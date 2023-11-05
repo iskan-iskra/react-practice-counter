@@ -1,11 +1,5 @@
 import { useEffect, useState } from 'react';
-
-type TiThemeState = 'light' | 'dark';
-
-type TiUseTheme = {
-  theme: TiThemeState;
-  toggleTheme(): void;
-};
+import { TiThemeState, TiUseTheme } from '../types';
 
 export default function useTheme(): TiUseTheme {
   const [theme, setTheme] = useState<TiThemeState>(

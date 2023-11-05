@@ -1,20 +1,10 @@
-export enum CounterReducerAction {
-  INCREMENT = 'increment',
-  DECREMENT = 'decrement',
-}
-
-type TiCounterReducerState = {
-  count: number;
-};
-
-type TiCounterReducerAction = {
-  type: CounterReducerAction;
-};
+import { TiCounterReducerAction, TiCounterReducerState } from '../types';
+import { CounterReducerAction } from '../const';
 
 export default function counterReducer(
   state: TiCounterReducerState,
   action: TiCounterReducerAction,
-) {
+): TiCounterReducerState {
   switch (action.type) {
     case CounterReducerAction.INCREMENT:
       return { count: state.count + 1 };

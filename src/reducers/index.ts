@@ -1,4 +1,1 @@
-export {
-  default as counterReducer,
-  CounterReducerAction,
-} from './counter-reducer.ts';
+export { default as counterReducer } from './counter-reducer.ts';

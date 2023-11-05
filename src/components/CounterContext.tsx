@@ -7,18 +7,19 @@ import {
   CardTitle,
   Stack,
 } from 'react-bootstrap';
-import { useCounter } from '../hooks';
-import { TiCounterBasicProps } from '../types';
+import { useContext } from 'react';
+import { ContextCounter } from '../context';
+import { TiCounter, TiCounterBasicProps } from '../types';
 
-const initialValue = 0;
-
-const CounterHook = (props: TiCounterBasicProps) => {
-  const { counter, increment, decrement } = useCounter(initialValue);
+const CounterContext = ({ title }: TiCounterBasicProps) => {
+  const { counter, increment, decrement } = useContext(
+    ContextCounter,
+  ) as TiCounter;
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{props.title || 'Hook counter - useCounter'}</CardTitle>
+        <CardTitle>{title || 'Props counter - props and callbacks'}</CardTitle>
       </CardHeader>
       <CardBody>
         <h3 className="text-center">
@@ -37,4 +38,4 @@ const CounterHook = (props: TiCounterBasicProps) => {
   );
 };
 
-export default CounterHook;
+export default CounterContext;
