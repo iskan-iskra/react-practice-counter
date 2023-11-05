@@ -7,7 +7,7 @@ type TiUseTheme = {
   toggleTheme(): void;
 };
 
-export function useTheme(): TiUseTheme {
+export default function useTheme(): TiUseTheme {
   const [theme, setTheme] = useState<TiThemeState>(
     (localStorage.getItem('theme') as TiThemeState) || 'light',
   );

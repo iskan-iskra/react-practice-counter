@@ -1,6 +1,14 @@
-import { Button, Col, Container, Row, Stack } from 'react-bootstrap';
-import { useTheme } from './hooks/use-theme.ts';
-import CounterBasic from './components/CounterBasic.tsx';
+import {
+  Button,
+  Col,
+  Container,
+  ListGroup,
+  ListGroupItem,
+  Row,
+  Stack,
+} from 'react-bootstrap';
+import { useTheme } from './hooks';
+import { CounterBasic, CounterHook, CounterReducer } from './components';
 
 const App = () => {
   const { theme, toggleTheme } = useTheme();
@@ -24,45 +32,77 @@ const App = () => {
       <main className="p-4 overflow-y-scroll ">
         <Container>
           <Stack gap={4}>
-            <Row>
-              <Col lg={4} md={5} sm={6} xs={12}>
+            <Row className="g-4">
+              <Col lg={3} md={6} sm={6} xs={12}>
                 <CounterBasic title="Basic counter" />
               </Col>
+              <Col lg={3} md={6} sm={6} xs={12}>
+                <CounterBasic title="Basic counter" />
+              </Col>
+              <Col lg={6} md={12} sm={12} xs={12}>
+                <ListGroup>
+                  <ListGroupItem variant="primary">
+                    <b>Basic</b>
+                  </ListGroupItem>
+
+                  <ListGroupItem variant="success">
+                    <b>Advantages</b>
+                  </ListGroupItem>
+
+                  <ListGroupItem variant="danger">
+                    <b>Disadvantages</b>
+                  </ListGroupItem>
+                </ListGroup>
+              </Col>
+              <hr />
             </Row>
-            <Row>
-              <Col lg={4} md={5} sm={6} xs={12}>
-                <CounterBasic title="Basic counter" />
+            <Row className="g-4">
+              <Col lg={3} md={6} sm={6} xs={12}>
+                <CounterHook title="Hook counter" />
               </Col>
+              <Col lg={3} md={6} sm={6} xs={12}>
+                <CounterHook title="Hook counter" />
+              </Col>
+              <Col lg={6} md={12} sm={12} xs={12}>
+                <ListGroup>
+                  <ListGroupItem variant="primary">
+                    <b>Basic</b>
+                  </ListGroupItem>
+
+                  <ListGroupItem variant="success">
+                    <b>Advantages</b>
+                  </ListGroupItem>
+
+                  <ListGroupItem variant="danger">
+                    <b>Disadvantages</b>
+                  </ListGroupItem>
+                </ListGroup>
+              </Col>
+              <hr />
             </Row>
-            <Row>
-              <Col lg={4} md={5} sm={6} xs={12}>
-                <CounterBasic title="Basic counter" />
+            <Row className="g-4">
+              <Col lg={3} md={6} sm={6} xs={12}>
+                <CounterReducer title="Reducer counter" />
               </Col>
-            </Row>
-            <Row>
-              <Col lg={4} md={5} sm={6} xs={12}>
-                <CounterBasic title="Basic counter" />
+              <Col lg={3} md={6} sm={6} xs={12}>
+                <CounterReducer title="Reducer counter" />
               </Col>
-            </Row>
-            <Row>
-              <Col lg={4} md={5} sm={6} xs={12}>
-                <CounterBasic title="Basic counter" />
+              <Col lg={6} md={12} sm={12} xs={12}>
+                <ListGroup>
+                  <ListGroupItem variant="primary">
+                    <b>Basic</b>
+                  </ListGroupItem>
+
+                  <ListGroupItem variant="success">
+                    <b>Advantages</b>
+                  </ListGroupItem>
+
+                  <ListGroupItem variant="danger">
+                    <b>Disadvantages</b>
+                  </ListGroupItem>
+                </ListGroup>
               </Col>
-            </Row>
-            <Row>
-              <Col lg={4} md={5} sm={6} xs={12}>
-                <CounterBasic title="Basic counter" />
-              </Col>
-            </Row>
-            <Row>
-              <Col lg={4} md={5} sm={6} xs={12}>
-                <CounterBasic title="Basic counter" />
-              </Col>
-            </Row>
-            <Row>
-              <Col lg={4} md={5} sm={6} xs={12}>
-                <CounterBasic title="Basic counter" />
-              </Col>
+              <hr />
             </Row>
           </Stack>
         </Container>

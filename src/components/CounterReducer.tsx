@@ -7,7 +7,8 @@ import {
   CardTitle,
   Stack,
 } from 'react-bootstrap';
-import { useState } from 'react';
+import { useReducer } from 'react';
+import { counterReducer, CounterReducerAction } from '../reducers';
 
 type TiCounterBasicProps = {
   title?: string;
@@ -15,25 +16,29 @@ type TiCounterBasicProps = {
 
 const initialValue = 0;
 
-const CounterBasic = (props: TiCounterBasicProps) => {
-  const [counter, setCounter] = useState<number>(initialValue);
+const CounterReducer = (props: TiCounterBasicProps) => {
+  const [state, dispatch] = useReducer(counterReducer, { count: initialValue });
 
-  const increment = (): void => {
-    setCounter((val: number) => val + 1);
+  const increment = () => {
+    dispatch({
+      type: CounterReducerAction.INCREMENT,
+    });
   };
 
-  const decrement = (): void => {
-    setCounter((val: number) => val - 1);
+  const decrement = () => {
+    dispatch({
+      type: CounterReducerAction.DECREMENT,
+    });
   };
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{props.title || 'Basic counter - useState'}</CardTitle>
+        <CardTitle>{props.title || 'Reducer counter - useReducer'}</CardTitle>
       </CardHeader>
       <CardBody>
         <h3 className="text-center">
-          <Badge bg="secondary">{counter}</Badge>
+          <Badge bg="secondary">{state.count}</Badge>
         </h3>
         <Stack direction="vertical" gap={2} className="align-content-center">
           <Button variant="success" onClick={increment}>
@@ -48,4 +53,4 @@ const CounterBasic = (props: TiCounterBasicProps) => {
   );
 };
 
-export default CounterBasic;
+export default CounterReducer;
