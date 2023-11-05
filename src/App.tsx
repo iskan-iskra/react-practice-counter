@@ -179,7 +179,7 @@ const App = () => {
               <Col lg={6} md={12} sm={12} xs={12}>
                 <Analytics
                   title={CounterTitleList.CONTEXT_AND_USE_COUNTER}
-                  basic="logic realization by using props in three of components"
+                  basic="logic realization by using context"
                   advantageList={[
                     'no depends on the depth of nesting',
                     'easy to control logic and state',
@@ -208,7 +208,7 @@ const App = () => {
               <Col lg={6} md={12} sm={12} xs={12}>
                 <Analytics
                   title={CounterTitleList.CONTEXT_AND_REDUCER}
-                  basic="logic realization by using props in three of components"
+                  basic="logic realization by FLUX (context + reducer)"
                   advantageList={[
                     'no depends on the depth of nesting',
                     'easy to control logic and state',
